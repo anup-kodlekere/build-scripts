@@ -60,6 +60,8 @@ export PATH=$PATH:/usr/local/jdk-21.0.9+10/bin/
 ln -sf /usr/local/jdk-21.0.9+10/bin/java /usr/bin/
 rm -rf OpenJDK21U-jdk_ppc64le_linux_hotspot_21.0.9_10.tar.gz
 
+git config http.postBuffer 524288000
+
 # ------------------------------
 # Build Opensearch
 # ------------------------------
