@@ -152,7 +152,7 @@ def trigger_script_validation_checks(file_name):
     container = client.containers.run(
         image_name,
         "/home/tester/{}".format(file_name),
-        user="test_user"
+        user="test_user",
         network='host',
         detach=True,
         volumes={
