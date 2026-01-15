@@ -151,7 +151,7 @@ def trigger_script_validation_checks(file_name):
     # Let the container run in non detach mode, as we need to delete the container on operation completion
     container = client.containers.run(
         image_name,
-        "/home/tester/{}".format(file_name),
+        "/work/{}".format(file_name),
         # user=str(os.getuid()),
         network='host',
         detach=True,
