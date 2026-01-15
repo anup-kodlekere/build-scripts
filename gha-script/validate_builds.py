@@ -151,12 +151,12 @@ def trigger_script_validation_checks(file_name):
     # Let the container run in non detach mode, as we need to delete the container on operation completion
     container = client.containers.run(
         image_name,
-        "/work/{}".format(file_name),
-        user=str(os.getuid()),
+        "/home/tester/{}".format(file_name),
+        user="test_user"
         network='host',
         detach=True,
         volumes={
-            current_dir: {'bind': '/work', 'mode': 'rw'}
+            current_dir: {'bind': '/home/tester', 'mode': 'rw'}
         },
         stderr=True,  # Return logs from STDERR
 
