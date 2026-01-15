@@ -36,7 +36,7 @@ BUILD_HOME="$(pwd)"
 SCRIPT=$(readlink -f $0)
 SCRIPT_DIR=$(dirname $SCRIPT)
 
-yum install -y git java-21-openjdk-devel
+sudo yum install -y git java-21-openjdk-devel
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 
