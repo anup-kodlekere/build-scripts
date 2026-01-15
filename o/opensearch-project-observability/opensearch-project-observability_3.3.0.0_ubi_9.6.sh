@@ -44,7 +44,8 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 echo "=========================== debug ============================="
 ls -lha /home
-ls -ld /home/test_user
+ls -ld /home/tester
+stat /home/tester
 whoami
 id
 echo "=========================== debug ============================="
