@@ -156,7 +156,7 @@ def trigger_script_validation_checks(file_name):
         network='host',
         detach=True,
         volumes={
-            current_dir: {'bind': '/home/tester/', 'mode': 'rw'}
+            current_dir: {'bind': '/work', 'mode': 'rw'}
         },
         stderr=True,  # Return logs from STDERR
 
