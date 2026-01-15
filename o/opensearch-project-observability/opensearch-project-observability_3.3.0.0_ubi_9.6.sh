@@ -51,9 +51,6 @@ id
 echo "=========================== debug ============================="
 
 
-#sudo chown -R test_user:test_user /home/tester
-
-
 
 # ------------------------------
 # Build Opensearch common-utils
