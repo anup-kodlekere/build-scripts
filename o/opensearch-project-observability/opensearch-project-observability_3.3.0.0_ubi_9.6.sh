@@ -44,13 +44,13 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 echo "=========================== debug ============================="
 ls -lha /home
-ls -ld /home/tester
+ls -ld /home/test_user
 whoami
 id
 echo "=========================== debug ============================="
 
 
-sudo chown -R test_user:test_user /home/tester
+#sudo chown -R test_user:test_user /home/tester
 
 
 
