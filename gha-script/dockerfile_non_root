@@ -3,7 +3,9 @@ ARG BASE_IMAGE
 FROM $BASE_IMAGE
 RUN yum install -y sudo
 RUN echo 'test_user ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/test_user
-RUN useradd -d /home/tester -m -s /bin/bash test_user \
- && chown -R test_user:test_user /home/tester
+RUN useradd -d /home/tester -m -s /bin/bash test_user 
 USER test_user
+RUN stat /home/tester
+RUN sudo chown -R test_user:test_user /home/tester
+RUN stat /home/tester
 WORKDIR /home/tester
