@@ -12,7 +12,7 @@ import re
 
 
 GITHUB_BUILD_SCRIPT_BASE_REPO = "build-scripts"
-GITHUB_BUILD_SCRIPT_BASE_OWNER = "ppc64le"
+GITHUB_BUILD_SCRIPT_BASE_OWNER = "anup-kodlekere"
 HOME = os.getcwd()
 
 package_data = {}
@@ -140,18 +140,24 @@ def trigger_script_validation_checks(file_name):
     # Spawn a container and pass the build script
     client = docker.DockerClient(base_url='unix://var/run/docker.sock')
     st = os.stat(file_name)
+    
     current_dir = os.getcwd()
+    print("========= CURRENT_DIR =============: ", current_dir)
+
+    current_uid = os.getuid()
+    print("========= CURRENT_UID =============: ", current_uid)
+    
     os.chmod("{}/{}".format(current_dir, file_name), st.st_mode | stat.S_IEXEC)
     # Let the container run in non detach mode, as we need to delete the container on operation completion
     container = client.containers.run(
         image_name,
         "/home/tester/{}".format(file_name),
-
         network='host',
         detach=True,
-        volumes={
-            current_dir: {'bind': '/home/tester/', 'mode': 'rw'}
-        },
+        # volumes={
+        #     current_dir: {'/home/tester': {'mode': 'rw'}}
+        # },
+        volumes={"/home/tester": {"mode": "rw"}},
         stderr=True,  # Return logs from STDERR
 
     )

@@ -8,7 +8,11 @@ on:
 
 jobs:
   validate:
-    runs-on: ubuntu-24.04-ppc64le-p10  # Ensure this self-hosted runner exists
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ ubuntu-24.04-ppc64le-p10, ubuntu-24.04-ppc64le-p10-self ]
 
     steps:
       - name: Checkout code
