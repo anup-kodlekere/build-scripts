@@ -40,6 +40,20 @@ sudo yum install -y git java-21-openjdk-devel
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export PATH=$PATH:$JAVA_HOME/bin
 
+
+
+echo "=========================== debug ============================="
+ls -lha /home
+ls -ld /home/tester
+whoami
+id
+echo "=========================== debug ============================="
+
+
+
+
+
+
 # ------------------------------
 # Build Opensearch common-utils
 # ------------------------------
