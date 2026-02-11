@@ -55,7 +55,7 @@ pip3 install --upgrade pip setuptools wheel
 pip3 install ninja 'cmake<4' 'pytest==8.2.2' hydra-core
 
 # Install dependency - pytorch
-PYTORCH_VERSION=v2.5.1
+PYTORCH_VERSION=v2.7.1
 cd $CURRENT_DIR
 
 git clone https://github.com/pytorch/pytorch.git
@@ -82,10 +82,11 @@ export CXXFLAGS="-Wno-unused-variable -Wno-unused-parameter"
 pip3 install -r requirements.txt
 MAX_JOBS=$PARALLEL python3 setup.py install
 
+export LD_LIBRARY_PATH=$CURRENT_DIR/pytorch/build/lib/:$LD_LIBRARY_PATH
 cd $CURRENT_DIR/$PACKAGE_NAME
 
 # Build and install xformers
-if ! pip3 install . -vvv; then
+if ! pip3 install . --no-build-isolation -vvv; then
     echo "------------------$PACKAGE_NAME:Build_fails---------------------"
     echo "$PACKAGE_URL $PACKAGE_NAME"
     echo "$PACKAGE_NAME  |  $PACKAGE_URL | $PACKAGE_VERSION | $OS_NAME | GitHub  | Fail |  Build_fails"
