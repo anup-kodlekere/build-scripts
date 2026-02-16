@@ -182,6 +182,8 @@ def build_non_root_custom_docker_image(base_image=None):
 
 
 def validate_build_info_file(file_name):
+
+    print("echo here")
     try:
         script_path = os.path.join(HOME, file_name)
         mandatory_fields = ['package_name', 'github_url', 'version', 'default_branch', 'build_script', 'package_dir', 'maintainer', 'use_non_root_user']
