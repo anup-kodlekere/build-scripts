@@ -23,6 +23,8 @@ PACKAGE_URL=https://github.com/OT-CONTAINER-KIT/redis-operator
 PACKAGE_DIR=redis-operator
 WORKDIR=$(pwd)
 
+echo "inside build script"
+whoami
 sudo chown -R $(whoami):$(whoami) $HOME || true
 
 # Install system dependencies
