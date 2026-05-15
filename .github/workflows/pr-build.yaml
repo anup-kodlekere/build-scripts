@@ -111,8 +111,8 @@ jobs:
       - name: Read build_info.json
         run: |
           ls -l ./gha-script/read_buildinfo.sh
-          
-          sudo chmod +x ./gha-script/read_buildinfo.sh
+          whoami
+          chmod +x ./gha-script/read_buildinfo.sh
           bash ./gha-script/read_buildinfo.sh
 
       - name: Create scanner-env.sh
